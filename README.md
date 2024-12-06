@@ -2,10 +2,8 @@
 
 learning javaScipt fundamental
 
-````instalation
+```instalation
 
 
 ```usage
 
-
-````
