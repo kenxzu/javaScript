@@ -1,0 +1,2 @@
+# javaScript
+learning javaScipt fundamental
