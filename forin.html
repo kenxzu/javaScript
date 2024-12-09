@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script>
+      const house = { sqr: 800, bdRooms: 2, bthRooms: 1 };
+
+      let houseDetails = "<h2>information about this hose </h2>";
+      for (let prop in house) {
+        houseDetails = `${houseDetails}<br>${prop}: ${house[prop]}<br>`;
+        document.getElementById("root").innerHTML = houseDetails;
+      }
+    </script>
+  </body>
+</html>

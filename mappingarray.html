@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapping</title>
+  </head>
+  <body>
+    <ul id="list"></ul>
+
+    <script>
+      const childs = ["arnol", "joy", "jan", "ken", "kids", 'kids'];
+      let listItems = childs.map((anak) => `<li>${anak}</li>`).join("");
+      document.getElementById("list").innerHTML = listItems;
+    </script>
+  </body>
+</html>

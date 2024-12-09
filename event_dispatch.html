@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="text" id="btn">tombol</button>
+
+    <script>
+      const event = new CustomEvent("stampedClick", { detail: new Date() });
+      const pencet = document.getElementById("btn");
+
+      function handleStampedClick(e) {
+        console.log(`clicked at`, e.detail);
+      }
+
+      pencet.addEventListener("stampedClick", handleStampedClick);
+
+      // function to remove the event listener
+      function removeEventListener() {
+        pencet.removeEventListener("stampedClick", handleStampedClick);
+        console.log("Event listener removed.");
+      }
+
+      // Example: remove event listener after dispatching the event once
+      pencet.dispatchEvent(event);
+      removeEventListener();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Promise</title>
+  </head>
+
+  <body>
+    <div id="text-display-area"></div>
+    <script>
+      async function openBook() {
+        try {
+          const bookText = await bookLoad("mobydick.txt");
+          displayArea.innerText = bookText;
+        } catch (e) {
+          displayArea.innerText = e;
+        }
+      }
+      function bookLoad(url) {
+        return new Promise(function (resolve, reject) {
+          let request = new XMLHttpRequest();
+          request.open("GET", url);
+          request.onload = function () {
+            if (request.status === 200) {
+              resolve(request.response);
+            } else {
+              reject(Error(request.statusText));
+            }
+          };
+          request.onerror = function () {
+            reject(Error("Network Error"));
+          };
+          request.send();
+        });
+      }
+      const displayArea = document.getElementById("text-display-area");
+      //   bookLoad("mobydick.txt")
+      //     .then(function (response) {
+      //       displayArea.innerText = response;
+      //     })
+      //     .catch(function (error) {
+      //       displayArea.textContent = error.message;
+      //     });
+
+      openBook();
+    </script>
+  </body>
+</html>

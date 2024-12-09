@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        window.addEventListener('load', app);
+        function app() {
+        const trackingArea = document.getElementById('tracking-area'); 
+        trackingArea.addEventListener('mousemove', onMouseMove); 
+        function onMouseMove(e) {
+        setPosition({ x: e.offsetX, y: e.offsetY }); 
+        console.log("event:", e);
+        }
+     }
+        function setPosition(position) {
+        const { x, y } = position;
+        const positionElement = document.getElementById('current-position');
+         positionElement.innerHTML = `x: ${x}; y: ${y}`;
+        }
+
+        </script>
+        <style>
+            #tracking-area { width: 500px; height: 500px;
+            border: 1px solid black; }
+            </style>
+            
+    </head>
+    <title>Event Practicc</title>
+  </head>
+  <body>
+    <section>
+      <h1>HTMl Attribute</h1>
+      <p>the problem of this is diffucult to maintain</p>
+      <button onclick="alert('you brow you clicked the button')">
+        Click mee
+      </button>
+    </section>
+    <section>
+      <h1>Event Handler-build in browser</h1>
+      <p>they take a function rather than a function call for their value</p>
+      <p>
+        the biggest problem of this imposible to use them to set them more than
+        one event of a certain type to an element. - only one type of event
+      </p>
+      <div id="help-button"></div>
+    </section>
+    <section>
+        <h1 id="current-position"></h1> <div id="tracking-area">
+            Move your mouse in here. If it's not working, click inside this box and try again.
+            </div>
+    
+    </section>
+    
+
+
+    <script>
+      const helpButton = document.getElementById("help-button");
+      helpButton.innerHTML = `<button>Click mee</button>`;
+      function displayHelpWindow() {
+        window.open("guessNum.html");
+      }
+
+      helpButton.onclick = displayHelpWindow;
+    </script>
+  </body>
+</html>
